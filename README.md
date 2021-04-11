@@ -68,9 +68,9 @@ Esses recursos não estão presentes por padrão nesse tema, mas são facilmente
 Basta adicionar o seguinte código no template: `do_action('action_name')` e chamar dentro do arquivo `inc\template-functions.php` usando essa estrutura:
 
 > add_action('action_name', 'your_function_name');
-function your_function_name() {
-// Seu código
-}
+> function your_function_name() {
+> // Seu código
+> }
 
 #### Hooks no WooCommerce
 O WooCommerce por padrão possui uma imensa lista de hooks que podem ser aproveitados sem a necessidade de criar novos. Para visualizar consulte a [WooCommerce Code Reference](https://woocommerce.github.io/code-reference/hooks/hooks.html#hooks-template-files).
