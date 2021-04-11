@@ -11,7 +11,7 @@ Baixe o tema no formato .zip e vá até `Aparência > Temas` no seu painel do Wo
 #### Plugins recomendados
 É fortemente recomendado o uso do [Advanced Custom Fields](https://www.advancedcustomfields.com) para a criação de campos personalizados para conteúdos.
 Para o envio de e-mails utilizando SMTP, é recomendado o uso do [Easy WP SMTP](https://br.wordpress.org/plugins/easy-wp-smtp/), por ser fácil de configurar e possuir uma boa confiabilidade.
-Para instalar um site multi-idiomas é recomendado o uso do [Loco Translate](https://br.wordpress.org/plugins/loco-translate/) que possibilita uma tradução simples pelo painel do Wordpress.
+Para instalar um site multi-idiomas é recomendado o uso do [TranslatePress](https://translatepress.com/) que possibilita uma tradução simples pelo painel do Wordpress.
 
 ## Estrutura de arquivos
 A estrutura informada a seguir fica em `wp-content\themes\wp-boilerplate`.
