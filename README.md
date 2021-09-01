@@ -2,7 +2,7 @@
 # WP Boilerplate
 Esse tema se trata de um boilerplate - uma estrutura básica já pronta - com estilizações simples, ferramentas e métodos para uma inicialização de projetos personalizados em WordPress.
 ## O que vem nesse boilerplate?
-Um tema personalizado com suporte para o [WooCommerce](https://br.wordpress.org/plugins/woocommerce/), estrutura pronta para criação de template personalizado com possibilidade de múltiplos idiomas. Possui o [Bootstrap v4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/) instalado por padrão.
+Um tema personalizado com suporte para o [WooCommerce](https://br.wordpress.org/plugins/woocommerce/), estrutura pronta para criação de template personalizado com possibilidade de múltiplos idiomas. Possui o [Tailwind CSS v2.2.9](https://tailwindcss.com/docs) instalado por padrão.
 
 ## Setup
 
@@ -13,12 +13,15 @@ Baixe o tema no formato .zip e vá até `Aparência > Temas` no seu painel do Wo
 Para o envio de e-mails utilizando SMTP, é recomendado o uso do [Easy WP SMTP](https://br.wordpress.org/plugins/easy-wp-smtp/), por ser fácil de configurar e possuir uma boa confiabilidade.
 Para instalar um site multi-idiomas é recomendado o uso do [TranslatePress](https://translatepress.com/) que possibilita uma tradução simples pelo painel do Wordpress.
 
+#### Usando o Tailwind CSS
+Como framework frontend está pré-configurado o uso do [Tailwind CSS](https://tailwindcss.com/docs). Para fazer a estilização das páginas usar o arquivo `tailwind.css` e para compilar rodar o comando `npx tailwindcss -i ./tailwind.css -o ./style.css`. Pode ser usado o parâmetro `--watch` para a ferramenta ficar escutando as modificações no arquivo e buildar automáticamente. 
+No momento da publicação em produção deve-se informar o `NODE_ENV=production` antes de executar o comando do build.
+
 ## Estrutura de arquivos
 A estrutura informada a seguir fica em `wp-content\themes\wp-boilerplate`.
 ### Pastas
 | Titulo | Objetivo |
 |--|--|
-| Assets | Armazenar assets externos que serão utilizados pelo frontend do projeto (.css, .js e imagens fixas) 
 | [Hooks](#hooks) | Armazenar os hooks do WooCommerce.
 | Inc | Armazenar ovewrides e hooks de partes do WordPress
 | JS | Armazenar arquivos .js consumidos no frontend
@@ -36,7 +39,9 @@ Não serão explorados todos os arquivos do tema, apenas os considerados mais im
 | page.php | Armazenar a estrutura de uma página. Para ver como cria um arquivo para diferentes páginas veja o [tópico relacionado](#new-pages).
 | single.php | Armazena a estrutura de um post. Para ver como cria um arquivo para diferentes tipos de posts veja o [tópico relacionado](#new-posts).
 | woocommerce.php | Armazena a estrutura da página inicial da loja
-| style.css | Armazena toda a estilização do tema. Caso queira criar outros arquivos para segmentar a estilização lembre-se de chama-lo dentro do `functions.php`
+| style.css | Armazena toda a estilização do tema que foi buildado pelo Tailwind CSS. Não é indicado fazer modificações nesse arquivo. Caso queira criar outros arquivos para segmentar a estilização lembre-se de chama-lo dentro do `functions.php`
+| tailwind.css | Armazena toda a estilização customizada do projeto (botões, campos, etc).
+| tailwind.config.js | Arquivo responsável pelas configurações do tailwind, como cores padrões, modificações do tema, etc.
 
 <a id="new-pages"></a>
 ## Como criar novas páginas

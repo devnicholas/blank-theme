@@ -11,8 +11,8 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer container-fluid p-0">
-		<div class="footer-menu container">
+	<footer id="colophon" class="bg-gray-300">
+		<div class="mx-auto container">
 			<h3>Menu</h3>
 			<?php
 			wp_nav_menu(
@@ -23,9 +23,9 @@
 			);
 			?>
 		</div>
-		<div class="copyright bg-dark">
+		<div class="bg-gray-800 text-white text-center p-3">
 			&copy; <?php bloginfo('name'); ?> <?php echo date('Y'); ?> 
-			<span class="sep"> | </span>
+			<span> | </span>
 			<?php print_r(wp_get_theme()['Name']) ?>
 		</div><!-- .copyrigth -->
 	</footer><!-- #colophon -->
