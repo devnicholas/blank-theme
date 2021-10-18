@@ -4,7 +4,8 @@
   "description": "A boilerplate from Wordpress theme.",
   "main": "tailwind.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./tailwind.css -o ./style.css"
   },
   "repository": {
     "type": "git",
