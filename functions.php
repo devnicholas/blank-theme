@@ -198,3 +198,35 @@ define('WOOCOMMERCE_USE_CSS', false);
  * Add hooks functions
  */
 require get_template_directory() . '/hooks/hooks.php';
+
+/**
+ * Add theme options
+ */
+if (function_exists('acf_add_options_page')) {
+	acf_add_options_page(array(
+		'page_title'    => 'Opções do tema',
+		'menu_title'    => 'Opções do tema',
+		'menu_slug'     => 'theme-options',
+		'capability'    => 'edit_posts',
+		'position'	=> 35
+	));
+	acf_add_options_sub_page(array(
+		'page_title'    => 'Opções do rodapé',
+		'parent_slug'   => 'theme-options',
+		'menu_title'    => 'Opções do rodapé',
+		'menu_slug'     => 'footer-settings',
+	));
+}
+
+/**
+ * Add custom post types
+ */
+/**
+register_post_type('produtos', [
+	'label' => 'Produtos',
+	'description' => 'Listagem dos produtos',
+	'public' => true,
+	'menu_icon' => 'dashicons-store',
+	'menu_position' => 30,
+]);
+**/
