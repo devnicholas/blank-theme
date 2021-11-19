@@ -5,7 +5,8 @@
   "main": "tailwind.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tailwindcss -i ./tailwind.css -o ./style.css"
+    "build": "tailwindcss -i ./tailwind.css -o ./style.css",
+    "prod": "NODE_ENV=production tailwindcss -i ./tailwind.css -o ./style.css --minify"
   },
   "repository": {
     "type": "git",

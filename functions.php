@@ -141,9 +141,15 @@ add_action( 'widgets_init', 'wp_boilerplate_widgets_init' );
  * Enqueue scripts and styles.
  */
 function wp_boilerplate_scripts() {
-	wp_enqueue_style( 'wp-boilerplate-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style('wp-boilerplate-slicknav-css', get_template_directory_uri() . '/assets/slicknav.min.css', array(), _S_VERSION);
+	wp_enqueue_style('wp-boilerplate-slick-css', get_template_directory_uri() . '/assets/slick.css', array(), _S_VERSION);
+	wp_enqueue_style('wp-boilerplate-style', get_stylesheet_uri(), array(), _S_VERSION);
 
-	wp_enqueue_script( 'wp-boilerplate-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script('wp-boilerplate-jquery', get_template_directory_uri() . '/assets/jquery-1.11.0.min.js', array(), _S_VERSION, true);
+	wp_enqueue_script('wp-boilerplate-slick-js', get_template_directory_uri() . '/assets/slick.min.js', array(), _S_VERSION, true);
+	wp_enqueue_script('wp-boilerplate-slicknav-js', get_template_directory_uri() . '/assets/jquery.slicknav.min.js', array(), _S_VERSION, true);
+	wp_enqueue_script('wp-boilerplate-scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true);
+	wp_enqueue_script('wp-boilerplate-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -170,6 +176,21 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Load default contents.
+ */
+require get_template_directory() . '/configs/default-contents.php';
+
+/**
+ * Load ACF Fields.
+ */
+require get_template_directory() . '/configs/acf-fields.php';
+
+/**
+ * Load Custom types.
+ */
+require get_template_directory() . '/configs/custom-types.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -218,15 +239,14 @@ if (function_exists('acf_add_options_page')) {
 	));
 }
 
-/**
- * Add custom post types
- */
-/**
-register_post_type('produtos', [
-	'label' => 'Produtos',
-	'description' => 'Listagem dos produtos',
-	'public' => true,
-	'menu_icon' => 'dashicons-store',
-	'menu_position' => 30,
-]);
-**/
+function mail_config($phpmailer)
+{
+	$phpmailer->isSMTP();
+	$phpmailer->Host = 'smtp.host.com';
+	$phpmailer->SMTPAuth = true;
+	$phpmailer->Port = 587;
+	$phpmailer->Username = 'mail@test.com';
+	$phpmailer->Password = 'secret';
+}
+
+add_action('phpmailer_init', 'mail_config');
