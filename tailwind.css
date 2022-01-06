@@ -32,3 +32,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 #primary-menu li {
     @apply flex-shrink mr-2;
 }
+@media (min-width: 640px) {
+	.slicknav_menu {
+		@apply hidden;
+	}
+}
