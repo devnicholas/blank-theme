@@ -5,11 +5,10 @@ function create_default_contents()
     $pages = [
         [
             'post_type' => 'page',
-            'post_title' => 'Contatos',
+            'post_title' => 'Home',
             'post_status' => 'publish',
             'post_content' => '',
             'post_author' => $idUser,
-            'page_template'  => 'template-contact.php'
         ]
     ];
     foreach ($pages as $page) {
