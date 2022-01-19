@@ -2,10 +2,45 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+				primary: {
+          light: '#a0cbcb',
+          default: '#2d7070'
+        },
+				secondary: "#ffbd59",
+			},
+    },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  corePlugins: {
+		container: false,
+	},
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        ".container": {
+          width: "100%",
+          marginLeft: "auto",
+          marginRight: "auto",
+          // paddingLeft: '2rem',
+          // paddingRight: '2rem',
+          "@screen sm": {
+            maxWidth: "640px",
+          },
+          "@screen md": {
+            maxWidth: "768px",
+          },
+          "@screen lg": {
+            maxWidth: "80%",
+          },
+          "@screen xl": {
+            maxWidth: "80%",
+          },
+        },
+      });
+    },
+  ],
 }
