@@ -11,28 +11,6 @@
  * @package WP_Boilerplate
  */
 
-/**
- * Set up the WordPress core custom header feature.
- *
- * @uses wp_boilerplate_header_style()
- */
-function wp_boilerplate_custom_header_setup() {
-	add_theme_support(
-		'custom-header',
-		apply_filters(
-			'wp_boilerplate_custom_header_args',
-			array(
-				'default-image'      => '',
-				'default-text-color' => '000000',
-				'width'              => 1000,
-				'height'             => 250,
-				'flex-height'        => true,
-				'wp-head-callback'   => 'wp_boilerplate_header_style',
-			)
-		)
-	);
-}
-add_action( 'after_setup_theme', 'wp_boilerplate_custom_header_setup' );
 
 if ( ! function_exists( 'wp_boilerplate_header_style' ) ) :
 	/**

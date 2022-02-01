@@ -1,7 +1,9 @@
 $(document).ready(function () {
-  $("#primary-menu").slicknav();
-  $(".mobile-menu-icon").on("click", function () {
-    $("#primary-menu").slicknav("toggle");
+  $(".active-menu-mobile").on("click", function () {
+    $("#sidebar-container").animate({ left: 0 });
+  });
+  $(".desactive-menu-mobile").on("click", function () {
+    $("#sidebar-container").animate({ left: "-100%" });
   });
   $(".slider").slick({
     autoplay: true,

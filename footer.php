@@ -13,7 +13,6 @@
 
 	<footer id="colophon" class="bg-gray-300">
 		<div class="mx-auto container">
-			<h3>Menu</h3>
 			<?php
 			wp_nav_menu(
 				array(
@@ -24,9 +23,7 @@
 			?>
 		</div>
 		<div class="bg-gray-800 text-white text-center p-3">
-			&copy; <?php bloginfo('name'); ?> <?php echo date('Y'); ?> 
-			<span> | </span>
-			<?php print_r(wp_get_theme()['Name']) ?>
+			<?php the_field('copyright', 'option') ?>
 		</div><!-- .copyrigth -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

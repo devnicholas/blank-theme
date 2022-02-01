@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WP Boilerplate functions and definitions
  *
@@ -7,12 +8,12 @@
  * @package WP_Boilerplate
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define('_S_VERSION', '1.0.0');
 }
 
-if ( ! function_exists( 'wp_boilerplate_setup' ) ) :
+if (!function_exists('wp_boilerplate_setup')) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -20,17 +21,18 @@ if ( ! function_exists( 'wp_boilerplate_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function wp_boilerplate_setup() {
+	function wp_boilerplate_setup()
+	{
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on WP Boilerplate, use a find and replace
 		 * to change 'wp-boilerplate' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'wp-boilerplate', get_template_directory() . '/languages' );
+		load_theme_textdomain('wp-boilerplate', get_template_directory() . '/languages');
 
 		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('automatic-feed-links');
 
 		/*
 		 * Let WordPress manage the document title.
@@ -38,20 +40,20 @@ if ( ! function_exists( 'wp_boilerplate_setup' ) ) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
+		add_theme_support('title-tag');
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support('post-thumbnails');
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'wp-boilerplate' ),
-				'menu-footer' => esc_html__( 'Footer', 'wp-boilerplate' ),
+				'menu-1' => esc_html__('Primary', 'wp-boilerplate'),
+				'menu-footer' => esc_html__('Footer', 'wp-boilerplate'),
 			)
 		);
 
@@ -85,7 +87,7 @@ if ( ! function_exists( 'wp_boilerplate_setup' ) ) :
 		);
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support('customize-selective-refresh-widgets');
 
 		/**
 		 * Add support for core custom logo.
@@ -103,7 +105,7 @@ if ( ! function_exists( 'wp_boilerplate_setup' ) ) :
 		);
 	}
 endif;
-add_action( 'after_setup_theme', 'wp_boilerplate_setup' );
+add_action('after_setup_theme', 'wp_boilerplate_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -112,22 +114,24 @@ add_action( 'after_setup_theme', 'wp_boilerplate_setup' );
  *
  * @global int $content_width
  */
-function wp_boilerplate_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'wp_boilerplate_content_width', 640 );
+function wp_boilerplate_content_width()
+{
+	$GLOBALS['content_width'] = apply_filters('wp_boilerplate_content_width', 640);
 }
-add_action( 'after_setup_theme', 'wp_boilerplate_content_width', 0 );
+add_action('after_setup_theme', 'wp_boilerplate_content_width', 0);
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function wp_boilerplate_widgets_init() {
+function wp_boilerplate_widgets_init()
+{
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'wp-boilerplate' ),
+			'name'          => esc_html__('Sidebar', 'wp-boilerplate'),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'wp-boilerplate' ),
+			'description'   => esc_html__('Add widgets here.', 'wp-boilerplate'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -135,27 +139,26 @@ function wp_boilerplate_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'wp_boilerplate_widgets_init' );
+add_action('widgets_init', 'wp_boilerplate_widgets_init');
 
 /**
  * Enqueue scripts and styles.
  */
-function wp_boilerplate_scripts() {
-	wp_enqueue_style('wp-boilerplate-slicknav-css', get_template_directory_uri() . '/assets/slicknav.min.css', array(), _S_VERSION);
+function wp_boilerplate_scripts()
+{
 	wp_enqueue_style('wp-boilerplate-slick-css', get_template_directory_uri() . '/assets/slick.css', array(), _S_VERSION);
 	wp_enqueue_style('wp-boilerplate-style', get_stylesheet_uri(), array(), _S_VERSION);
 
 	wp_enqueue_script('wp-boilerplate-jquery', get_template_directory_uri() . '/assets/jquery-1.11.0.min.js', array(), _S_VERSION, true);
 	wp_enqueue_script('wp-boilerplate-slick-js', get_template_directory_uri() . '/assets/slick.min.js', array(), _S_VERSION, true);
-	wp_enqueue_script('wp-boilerplate-slicknav-js', get_template_directory_uri() . '/assets/jquery.slicknav.min.js', array(), _S_VERSION, true);
 	wp_enqueue_script('wp-boilerplate-scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true);
 	wp_enqueue_script('wp-boilerplate-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'wp_boilerplate_scripts' );
+add_action('wp_enqueue_scripts', 'wp_boilerplate_scripts');
 
 /**
  * Implement the Custom Header feature.
@@ -183,32 +186,28 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/configs/default-contents.php';
 
 /**
- * Load ACF Fields.
+ * Load SMTP configs.
  */
-require get_template_directory() . '/configs/acf-fields.php';
+require get_template_directory() . '/configs/smtp.php';
 
-/**
- * Load Custom types.
- */
-require get_template_directory() . '/configs/custom-types.php';
 
 /**
  * Load Jetpack compatibility file.
  */
-if ( defined( 'JETPACK__VERSION' ) ) {
+if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
 /**
  * Add Woocommerce support
  */
-add_theme_support( 'woocommerce' );
+add_theme_support('woocommerce');
 
 /**
  * Remove default WooCommerce hooks
  */
-remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 
 /**
  * Dont use CSS default to WooCommerce
@@ -220,33 +219,10 @@ define('WOOCOMMERCE_USE_CSS', false);
  */
 require get_template_directory() . '/hooks/hooks.php';
 
-/**
- * Add theme options
- */
-if (function_exists('acf_add_options_page')) {
-	acf_add_options_page(array(
-		'page_title'    => 'Opções do tema',
-		'menu_title'    => 'Opções do tema',
-		'menu_slug'     => 'theme-options',
-		'capability'    => 'edit_posts',
-		'position'	=> 35
-	));
-	acf_add_options_sub_page(array(
-		'page_title'    => 'Opções do rodapé',
-		'parent_slug'   => 'theme-options',
-		'menu_title'    => 'Opções do rodapé',
-		'menu_slug'     => 'footer-settings',
-	));
-}
-
-function mail_config($phpmailer)
+add_action('acf/init', 'init_acf_config');
+function init_acf_config()
 {
-	$phpmailer->isSMTP();
-	$phpmailer->Host = 'smtp.host.com';
-	$phpmailer->SMTPAuth = true;
-	$phpmailer->Port = 587;
-	$phpmailer->Username = 'mail@test.com';
-	$phpmailer->Password = 'secret';
+	require get_template_directory() . '/custom-fields/helper.php';
+	require get_template_directory() . '/custom-fields/index.php';
+	require get_template_directory() . '/custom-fields/theme-options.php';
 }
-
-add_action('phpmailer_init', 'mail_config');
