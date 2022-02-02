@@ -190,6 +190,11 @@ require get_template_directory() . '/configs/default-contents.php';
  */
 require get_template_directory() . '/configs/smtp.php';
 
+/**
+ * Load TGM plugins activation.
+ */
+require get_template_directory() . '/plugins/index.php';
+
 
 /**
  * Load Jetpack compatibility file.
