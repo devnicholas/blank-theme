@@ -61,7 +61,7 @@ class My_ACF_Location_Page_Slug extends ACF_Location
         $this->object_type = 'page';
     }
 
-    public function get_values()
+    public function get_values($rule)
     {
         $choices = array();
 
