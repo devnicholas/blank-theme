@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) exit;
 /**
  * Function to create custom fields easy
  */
-function create_field_custom($slug, $label, $type = 'text', $sub_fields = [], $custom_options = [])
+function create_field_custom($slug, $label, $type = 'text', $custom_options = [], $sub_fields = [])
 {
     $options = $custom_options;
     if ($type == 'image' || $type == 'file') {
@@ -28,9 +28,9 @@ function create_field_custom($slug, $label, $type = 'text', $sub_fields = [], $c
 /**
  * Function to create custom types easy
  */
-function create_custom_type($slug, $name, $haveCategories = false)
+function create_custom_type($slug, $name, $haveCategories = false, $configs = [])
 {
-    register_post_type($slug, [
+    register_post_type($slug, array_merge([
         'label' => $name,
         'description' => 'Listagem',
         'public' => true,
@@ -38,7 +38,7 @@ function create_custom_type($slug, $name, $haveCategories = false)
         'menu_position' => 5,
         'show_in_rest' => true,
         'supports' => ['title', 'editor', 'thumbnail']
-    ]);
+    ]), $configs);
     if ($haveCategories) {
         register_taxonomy($slug, $slug, [
             'hierarchical' => true,

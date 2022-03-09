@@ -33,7 +33,7 @@ function wp_boilerplate_jetpack_setup() {
 		'jetpack-content-options',
 		array(
 			'post-details' => array(
-				'stylesheet' => 'wp-boilerplate-style',
+				'stylesheet' => 'blank-theme-style',
 				'date'       => '.posted-on',
 				'categories' => '.cat-links',
 				'tags'       => '.tags-links',

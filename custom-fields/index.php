@@ -5,9 +5,9 @@ if (function_exists('acf_add_local_field_group')) {
     //     'key' => 'group_1',
     //     'title' => 'My Group',
     //     'fields' => [
-    //         create_field_custom('text', 'My Field Text'),
-    //         create_field_custom('image', 'My Field Image', 'image'),
-    //         create_field_custom('group', 'My Field Group', 'repeater', [
+    //         create_field_custom('field_text', 'My Field Text'),
+    //         create_field_custom('field_image', 'My Field Image', 'image'),
+    //         create_field_custom('group', 'My Field Group', 'repeater', [], [
     //             create_field_custom('group_text', 'My Field Text', 'text'),
     //             create_field_custom('group_image', 'My Field Image', 'image'),
     //         ]),
@@ -15,7 +15,7 @@ if (function_exists('acf_add_local_field_group')) {
     //     'location' => [
     //         [
     //             [
-    //                 'param' => 'options_page',
+    //                 'param' => 'options_page', // page_slug
     //                 'operator' => '==',
     //                 'value' => 'footer-settings',
     //             ],
@@ -27,7 +27,7 @@ if (function_exists('acf_add_local_field_group')) {
         'key' => 'footer_settings',
         'title' => 'Opções do Rodapé',
         'fields' => [
-            create_field_custom('copyright', 'Copyright', 'text', [], ['default_value' => 'WP-BOILERPLATE']),
+            create_field_custom('copyright', 'Copyright', 'text', ['default_value' => 'blank-theme']),
         ],
         'location' => [
             [

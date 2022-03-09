@@ -1,16 +1,16 @@
 {
-  "name": "wp-boilerplate",
+  "name": "blank-theme",
   "version": "1.0.0",
   "description": "A boilerplate from Wordpress theme.",
   "main": "tailwind.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tailwindcss -i ./tailwind.css -o ./style.css",
-    "prod": "NODE_ENV=production tailwindcss -i ./tailwind.css -o ./style.css --minify"
+    "dev": "tailwindcss -i ./tailwind.css -o ./style.css",
+    "watch": "tailwindcss -i ./tailwind.css -o ./style.css --watch",
+    "build": "NODE_ENV=production tailwindcss -i ./tailwind.css -o ./style.css --minify"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devnicholas/wp-boilerplate.git"
+    "url": "git+https://github.com/devnicholas/blank-theme.git"
   },
   "keywords": [
     "Wordpress",
@@ -20,9 +20,9 @@
   "author": "Nicholas Stefano",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/devnicholas/wp-boilerplate/issues"
+    "url": "https://github.com/devnicholas/blank-theme/issues"
   },
-  "homepage": "https://github.com/devnicholas/wp-boilerplate#readme",
+  "homepage": "https://github.com/devnicholas/blank-theme#readme",
   "dependencies": {
     "tailwindcss": "^2.2.9"
   }

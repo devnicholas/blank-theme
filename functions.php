@@ -1,7 +1,7 @@
 <?php
 
 /**
- * WP Boilerplate functions and definitions
+ * Blank Theme functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -26,13 +26,10 @@ if (!function_exists('wp_boilerplate_setup')) :
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on WP Boilerplate, use a find and replace
-		 * to change 'wp-boilerplate' to the name of your theme in all the template files.
+		 * If you're building a theme based on Blank Theme, use a find and replace
+		 * to change 'blank-theme' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain('wp-boilerplate', get_template_directory() . '/languages');
-
-		// Add default posts and comments RSS feed links to head.
-		add_theme_support('automatic-feed-links');
+		load_theme_textdomain('blank-theme', get_template_directory() . '/languages');
 
 		/*
 		 * Let WordPress manage the document title.
@@ -52,8 +49,8 @@ if (!function_exists('wp_boilerplate_setup')) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__('Primary', 'wp-boilerplate'),
-				'menu-footer' => esc_html__('Footer', 'wp-boilerplate'),
+				'menu-1' => esc_html__('Primary', 'blank-theme'),
+				'menu-footer' => esc_html__('Footer', 'blank-theme'),
 			)
 		);
 
@@ -71,18 +68,6 @@ if (!function_exists('wp_boilerplate_setup')) :
 				'caption',
 				'style',
 				'script',
-			)
-		);
-
-		// Set up the WordPress core custom background feature.
-		add_theme_support(
-			'custom-background',
-			apply_filters(
-				'wp_boilerplate_custom_background_args',
-				array(
-					'default-color' => 'ffffff',
-					'default-image' => '',
-				)
 			)
 		);
 
@@ -108,19 +93,6 @@ endif;
 add_action('after_setup_theme', 'wp_boilerplate_setup');
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function wp_boilerplate_content_width()
-{
-	$GLOBALS['content_width'] = apply_filters('wp_boilerplate_content_width', 640);
-}
-add_action('after_setup_theme', 'wp_boilerplate_content_width', 0);
-
-/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
@@ -129,9 +101,9 @@ function wp_boilerplate_widgets_init()
 {
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Sidebar', 'wp-boilerplate'),
+			'name'          => esc_html__('Sidebar', 'blank-theme'),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__('Add widgets here.', 'wp-boilerplate'),
+			'description'   => esc_html__('Add widgets here.', 'blank-theme'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -146,13 +118,13 @@ add_action('widgets_init', 'wp_boilerplate_widgets_init');
  */
 function wp_boilerplate_scripts()
 {
-	wp_enqueue_style('wp-boilerplate-slick-css', get_template_directory_uri() . '/assets/slick.css', array(), _S_VERSION);
-	wp_enqueue_style('wp-boilerplate-style', get_stylesheet_uri(), array(), _S_VERSION);
+	wp_enqueue_style('blank-theme-slick-css', get_template_directory_uri() . '/assets/slick.css', array(), _S_VERSION);
+	wp_enqueue_style('blank-theme-style', get_stylesheet_uri(), array(), _S_VERSION);
 
-	wp_enqueue_script('wp-boilerplate-jquery', get_template_directory_uri() . '/assets/jquery-1.11.0.min.js', array(), _S_VERSION, true);
-	wp_enqueue_script('wp-boilerplate-slick-js', get_template_directory_uri() . '/assets/slick.min.js', array(), _S_VERSION, true);
-	wp_enqueue_script('wp-boilerplate-scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true);
-	wp_enqueue_script('wp-boilerplate-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	wp_enqueue_script('blank-theme-jquery', get_template_directory_uri() . '/assets/jquery-1.11.0.min.js', array(), _S_VERSION, true);
+	wp_enqueue_script('blank-theme-slick-js', get_template_directory_uri() . '/assets/slick.min.js', array(), _S_VERSION, true);
+	wp_enqueue_script('blank-theme-scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true);
+	wp_enqueue_script('blank-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
