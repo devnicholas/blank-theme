@@ -1,6 +1,22 @@
 module.exports = {
-  purge: [],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './tailwind.css',
+    './header.php',
+    './footer.php',
+    './index.php',
+    './404.php',
+    './single.php',
+    './page.php',
+    './category.php',
+    './archive.php',
+    './woocommerce.php',
+    './sidebar.php',
+    './template-parts/**/*.php',
+    './pages/**/*.php',
+    './contents/**/*.php',
+    './components/**/*.php',
+    './woocommerce/**/*.php',
+  ],
   theme: {
     extend: {
       colors: {
