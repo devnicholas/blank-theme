@@ -5,7 +5,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package WP_Boilerplate
+ * @package blank_theme
  */
 
 get_header();

@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package WP_Boilerplate
+ * @package blank_theme
  */
 
 ?>
@@ -14,7 +14,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php wp_boilerplate_post_thumbnail(); ?>
+	<?php blank_theme_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

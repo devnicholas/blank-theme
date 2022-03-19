@@ -30,19 +30,41 @@ function create_field_custom($slug, $label, $type = 'text', $custom_options = []
  */
 function create_custom_type($slug, $name, $haveCategories = false, $configs = [])
 {
-    register_post_type($slug, array_merge([
+    $postTypeConfigs = [
         'label' => $name,
         'description' => 'Listagem',
         'public' => true,
         'menu_icon' => 'dashicons-media-default',
         'menu_position' => 5,
-        'show_in_rest' => true,
-        'supports' => ['title', 'editor', 'thumbnail']
-    ]), $configs);
+        'supports' => ['title', 'editor', 'thumbnail'],
+    ];
+    $taxonomyConfigs = [];
     if ($haveCategories) {
-        register_taxonomy($slug, $slug, [
+        $taxonomyConfigs = [
             'hierarchical' => true,
-        ]);
+            'query_var' => true,
+            'taxonomies' => [$slug . '_categories'],
+            'rewrite' => [
+                'slug' => $slug . '/%' . $slug . '_categories%',
+                'with_front' => false
+            ]
+        ];
+    }
+    register_post_type($slug, array_merge($postTypeConfigs, $taxonomyConfigs, $configs));
+    if ($haveCategories) {
+        register_taxonomy(
+            $slug . '_categories',
+            $slug,
+            [
+                'hierarchical' => true,
+                'label' => 'Categorias',
+                'query_var' => true,
+                'rewrite' => [
+                    'slug' => $slug,
+                    'with_front' => false
+                ]
+            ]
+        );
     }
 }
 

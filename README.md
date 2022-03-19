@@ -13,6 +13,7 @@ Um tema base para a criação de temas personalizados no Wordpress
 
 # 📋 Tabela de conteúdos
 * [Sobre](#sobre) 
+* [Requisitos](#requisitos) 
 * [Instalação](#instalacao) 
 	* [Plugins](#plugins)
 	* [Tecnologias](#tecnologias)
@@ -26,6 +27,21 @@ Um tema base para a criação de temas personalizados no Wordpress
 * [Recomendações e boas práticas](#recomendations)
 * [Autor](#author)
 * [Licença](#license)
+
+</div>
+
+<div  id="requisitos">
+
+# 👀 Requisitos
+
+Em ambiente de **produção**:
+ - PHP 5.6 ou superior
+ - Wordpress 5.4 ou superior
+
+Em ambiente de **desenvolvimento**:
+- Node 
+- Docker
+- Yarn
 
 </div>
 
@@ -193,5 +209,5 @@ Para fins de testes e debug, recomendo a utilização da plataforma [MailTrap.io
 # 📝 Licença
 Este projeto esta sobe a licença [MIT](./LICENSE).
 
-Feito com ❤️ por Nicholas Stefano 👋🏽 [Entre em contato!](www.linkedin.com/in/nicholas-stefano)
+Feito com ❤️ por Nicholas Stefano 👋🏽 [Entre em contato!](https://www.linkedin.com/in/nicholas-stefano)
 </div>

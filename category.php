@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package WP_Boilerplate
+ * @package blank_theme
  */
 
 get_header();
