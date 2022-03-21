@@ -6,8 +6,9 @@
 <div align="center">
 Um tema base para a criação de temas personalizados no Wordpress
 
-![Badge](https://img.shields.io/badge/license-MIT-blue)
-![Badge](https://img.shields.io/badge/Wordpress-4.9.1-brightgreen)
+![Badge](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
+![Badge](https://img.shields.io/badge/Wordpress-4.9.2-brightgreen?style=for-the-badge&logo=wordpress)
+![Badge](https://img.shields.io/badge/Docker-blue?logo=docker&style=for-the-badge)
 </div>
 <div id="tabela-de-conteudo">
 
@@ -49,7 +50,15 @@ Em ambiente de **desenvolvimento**:
 
 # 🚀 Instalação
 
+Em ambiente de **produção**:
 Baixe o tema no formato .zip e vá até `Aparência > Temas` no seu painel do WordPress e clique em _Adicionar novo_. Envie o arquivo .zip que você baixou previamente e o tema estará pronto para ser ativado!
+
+Em ambiente de **desenvolvimento**:
+O processo pode ser feito da mesma forma que em produção, porém existe uma maneira mais fácil para trabalhar localmente com esse tema usando o *Docker*.  Ao rodar o comando: 
+```bash
+$ docker-compose up
+```
+Você irá iniciar uma instalação do wordpress que já terá seu tema pronto para ser ativado e todas as alterações feitas serão refletidas na pasta do tema dentro do container.
 </div>
 <div id="plugins">
 
@@ -69,13 +78,12 @@ O [Translate Press](https://translatepress.com/) é indicado para sites multi-id
 O tema utiliza as seguintes tecnologias no seu funcionamento:
 
  - [Tailwind CSS](https://tailwindcss.com/docs)
- - Suporte para [WooCommerce](https://br.wordpress.org/plugins/woocommerce/)
+ - [Docker](https://www.docker.com/)
+ - [WooCommerce](https://br.wordpress.org/plugins/woocommerce/)
  - [TGM Plugin Activation](http://tgmpluginactivation.com/)
  - [Advanced Custom Fields PRO](https://github.com/wp-premium/advanced-custom-fields-pro)
- - Node*
- - Yarn*
-
-*utilizados apenas em ambiente de desenvolvimento
+ - [Node](https://nodejs.org/)
+ - [Yarn](https://yarnpkg.com/)
 
 </div>
 <div id="features">
