@@ -23,7 +23,7 @@
 			?>
 		</div>
 		<div class="bg-gray-800 text-white text-center p-3">
-			<?php the_field('copyright', 'option') ?>
+			<?php the_theme_field('copyright') ?>
 		</div><!-- .copyrigth -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

@@ -1,3 +1,3 @@
-<?php get_header(); ?>
-<?php the_content(); ?>
-<?php get_footer(); ?>
+<div class="container">
+    <?php the_content(); ?>
+</div>

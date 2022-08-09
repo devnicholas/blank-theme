@@ -8,7 +8,7 @@ function image($path){
 	return get_template_directory_uri() . '/images/' . $path;
 }
 
-function the_theme_config($key)
+function the_theme_field($key)
 {
 	return the_field($key, 'option');
 }
