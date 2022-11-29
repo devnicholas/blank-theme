@@ -1,76 +1,51 @@
 <?php
+require_once 'src/Autoload.php';
 
-/**
- * Blank Theme functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package blank_theme
- */
+use Src\AutoLoad;
 
+// Theme version
 if (!defined('_S_VERSION')) {
-	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '1.0.0');
+    define('_S_VERSION', '2.0.0');
 }
 
-/**
- * Theme setup and custom theme supports.
- */
-require get_template_directory() . '/configs/theme-setup.php';
+// Load core theme files
+$autoload = new AutoLoad(get_template_directory() . '/src');
 
-/**
- * Theme widgets.
- */
-require get_template_directory() . '/configs/theme-widgets.php';
+// Load plugins install
+$autoload->add(get_template_directory() . '/plugins/index.php');
 
-/**
- * Theme scripts and styles enqueue.
- */
-require get_template_directory() . '/configs/theme-scripts.php';
+// Load custom types and fields
+$autoload->add(get_template_directory() . '/acf');
 
-/**
- * Load default contents.
- */
-require get_template_directory() . '/configs/default-contents.php';
+// Call files
+$autoload->load();
 
-/**
- * Load SMTP configs.
- */
-require get_template_directory() . '/configs/smtp.php';
+$theme = new ThemeSetup();
+$theme->setMenus([
+    'menu-primary' => 'Menu primário',
+    'menu-footer' => 'Menu do rodapé',
+]);
+$theme->setThemeSupport([
+    'title-tag',
+    'post-thumbnails',
+    'html5',
+    'custom-logo',
+    // 'woocommerce',
+]);
 
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
+$theme->initialize();
 
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
+add_action('wp_enqueue_scripts', function () {
+    $themeEnqueue = new ThemeEnqueue();
+    $themeEnqueue->setScripts([
+        'jquery' => get_template_directory_uri() . '/src/inc/jquery-1.11.0.min.js',
+        'slick' => get_template_directory_uri() . '/src/inc/slick.min.js',
+        'script' => get_template_directory_uri() . '/dist/scripts.js',
+    ]);
+    $themeEnqueue->setStyles([
+        'slick' => get_template_directory_uri() . '/src/inc/slick.min.css',
+        'style' => get_template_directory_uri() . '/dist/style.css',
+    ]);
 
-/**
- * Helpers function repository for this theme.
- */
-require get_template_directory() . '/inc/template-helpers.php';
-
-/**
- * Load TGM plugins activation.
- */
-require get_template_directory() . '/plugins/index.php';
-
-/**
- * Add hooks functions
- */
-require get_template_directory() . '/hooks/hooks.php';
-
-/**
- * Load ACF files.
- */
-add_action('acf/init', 'init_acf_config');
-function init_acf_config()
-{
-	require get_template_directory() . '/custom-fields/helper.php';
-	require get_template_directory() . '/custom-fields/index.php';
-	require get_template_directory() . '/custom-fields/theme-options.php';
-	require get_template_directory() . '/custom-fields/custom-types.php';
-}
+    $themeEnqueue->enqueue();
+});

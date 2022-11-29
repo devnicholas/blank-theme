@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./assets/js/scripts.js":
-/*!******************************!*\
-  !*** ./assets/js/scripts.js ***!
-  \******************************/
+/***/ "./src/js/scripts.js":
+/*!***************************!*\
+  !*** ./src/js/scripts.js ***!
+  \***************************/
 /***/ (() => {
 
-eval("$(document).ready(function () {\r\n  $(\".active-menu-mobile\").on(\"click\", function () {\r\n    $(\"#sidebar-container\").animate({ left: 0 });\r\n  });\r\n  $(\".desactive-menu-mobile\").on(\"click\", function () {\r\n    $(\"#sidebar-container\").animate({ left: \"-100%\" });\r\n  });\r\n  $(\".slider\").slick({\r\n    autoplay: true,\r\n    autoplaySpeed: 5000,\r\n  });\r\n});\r\n\n\n//# sourceURL=webpack://blank-theme/./assets/js/scripts.js?");
+eval("\n\n//# sourceURL=webpack://blank-theme/./src/js/scripts.js?");
 
 /***/ })
 
@@ -26,7 +26,7 @@ eval("$(document).ready(function () {\r\n  $(\".active-menu-mobile\").on(\"click
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./assets/js/scripts.js"]();
+/******/ 	__webpack_modules__["./src/js/scripts.js"]();
 /******/ 	
 /******/ })()
 ;

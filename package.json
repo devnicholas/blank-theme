@@ -1,25 +1,18 @@
 {
   "name": "blank-theme",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A boilerplate from Wordpress theme.",
   "main": "tailwind.config.js",
   "scripts": {
-    "dev:css": "npx tailwindcss -i ./style.css -o ./dist/style.css",
-    "dev:js": "webpack --mode development",
-    "dev": "webpack --mode development && npx tailwindcss -i ./style.css -o ./dist/style.css",
-    "watch:css": "npx tailwindcss -i ./style.css -o ./dist/style.css --watch",
-    "watch:js": "webpack --watch --mode development",
-    "build": "webpack && npx tailwindcss -i ./style.css -o ./dist/style.css --minify"
+    "dev": "webpack --mode development && npx tailwindcss -i ./src/css/style.css -o ./dist/style.css",
+    "dev:css": "npx tailwindcss -i ./src/css/style.css -o ./dist/style.css --watch",
+    "dev:js": "webpack --watch --mode development",
+    "build": "webpack && npx tailwindcss -i ./src/css/style.css -o ./dist/style.css --minify"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devnicholas/blank-theme.git"
   },
-  "keywords": [
-    "Wordpress",
-    "Theme",
-    "Custom"
-  ],
   "author": "Nicholas Stefano",
   "license": "MIT",
   "bugs": {
@@ -27,11 +20,10 @@
   },
   "homepage": "https://github.com/devnicholas/blank-theme#readme",
   "dependencies": {
-    "tailwindcss": "^3.0.23"
-  },
-  "devDependencies": {
     "glob": "^7.2.0",
+    "tailwindcss": "^3.2.4",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2"
-  }
+  },
+  "devDependencies": {}
 }
