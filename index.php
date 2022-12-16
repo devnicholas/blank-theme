@@ -9,10 +9,6 @@
         <a href="https://github.com/devnicholas/blank-theme" target="_blank" rel="noopener noreferrer">
             GITHUB
         </a>
-        |
-        <a href="https://devnicholas.github.io/" target="_blank" rel="noopener noreferrer">
-            AUTHOR
-        </a>
     </div>
 </div>
 <?php get_footer(); ?>
