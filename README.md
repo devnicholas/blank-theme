@@ -10,18 +10,19 @@ Um tema base para a criação de temas personalizados no Wordpress
 <div id="tabela-de-conteudo">
 
 # 📋 Tabela de conteúdos
-* [Requisitos](#requisitos) 
-* [Instalação](#instalacao) 
-	* [Plugins](#plugins)
-	* [Tecnologias](#tecnologias)
-* [Features](#features)
-	* [Campos customizados](#custom-fields)
-	* [Conteúdos customizados](#custom-types)
-	* [Exibir páginas](#pages)
-	* [Exibir tipos de conteúdos customizados](#types)
-* [Recomendações e boas práticas](#recomendations)
-* [Autor](#author)
-* [Licença](#license)
+- [📋 Tabela de conteúdos](#-tabela-de-conteúdos)
+- [👀 Requisitos](#-requisitos)
+- [🚀 Instalação](#-instalação)
+	- [🔗 Plugins](#-plugins)
+	- [🛠️ Tecnologias](#️-tecnologias)
+- [📋 Features](#-features)
+	- [📑 Campos customizados](#-campos-customizados)
+	- [📑 Tipos customizados](#-tipos-customizados)
+	- [📄 Exibir páginas](#-exibir-páginas)
+	- [📂 Exibir tipos de conteúdos customizados](#-exibir-tipos-de-conteúdos-customizados)
+- [💡 Recomendações](#-recomendações)
+- [🙋‍♂️ Autor](#️-autor)
+- [📝 Licença](#-licença)
 
 </div>
 
@@ -57,14 +58,7 @@ Você irá iniciar uma instalação do wordpress que já terá seu tema pronto p
 <div id="plugins">
 
 ## 🔗 Plugins
-![Advanced Custom Fields](https://img.shields.io/badge/required-Advanced%20Custom%20Fields-blue)
-O [Advanced Custom Fields](https://www.advancedcustomfields.com) é um plugin para criação de campos e tipos de conteúdos personalizados. O Tema possui forte integração com esse plugin, sendo obrigatório a instalação. Após a ativação do tema ele dará opção de já instalar o plugin sem precisar baixa-lo.
-
-![Contact Form 7](https://img.shields.io/badge/optional-Contact%20Form%207-blue)
-O [Contact Form 7](https://contactform7.com) permite a criação de formulários utilizando HTML e lida bem com as exceções e envio de formulários utilizando os recursos do Wordpress.
-
-![Translate Press](https://img.shields.io/badge/optional-Translate%20Press-blue)
-O [Translate Press](https://translatepress.com/) é indicado para sites multi-idiomas, pois permite a tradução de conteúdo de forma manual ou automática, inclusive a substituição de imagens baseado no idioma.
+A listagem de todos os plugins recomendados está feita em Plugins > Plugins recomendados. O único que é obrigatório é o [Advanced Custom Fields](https://www.advancedcustomfields.com), pois as maiores features do tema dependem dele. É possível utilizar o tema sem ele, porém não será possível usar todos os recursos que o tema possui.
 </div>
 <div id="tecnologias">
 
@@ -121,9 +115,9 @@ Na ausência de um arquivo com o slug da página o Wordpress chamará outros arq
 <div id="types">
 
 ## 📂 Exibir tipos de conteúdos customizados
-Para exibir a página interna de um tipo de conteúdo customizado é necessário criar um arquivo dentro do diretório `templates/singles` com o nome `{slug}.php`, onde o slug irá corresponder ao slug do tipo de conteúdo. 
+Para exibir a página interna de um tipo de conteúdo customizado é necessário criar um arquivo dentro do diretório `resourses/views/singles` com o nome `{slug}.php`, onde o slug irá corresponder ao slug do tipo de conteúdo. 
 
-Por exemplo para o tipo de conteúdo com o slug `servicos` o arquivo ficaria `templates/singles/servicos.php`.
+Por exemplo para o tipo de conteúdo com o slug `servicos` o arquivo ficaria `resourses/views/singles/servicos.php`.
 
 Na ausência de um arquivo com o slug do tipo de conteúdo o Wordpress chamará outros arquivos conforme a [hierarquia de templates](https://developer.wordpress.org/themes/basics/template-hierarchy).
 </div>

@@ -4,10 +4,10 @@
   "description": "A boilerplate from Wordpress theme.",
   "main": "tailwind.config.js",
   "scripts": {
-    "dev": "webpack --mode development && npx tailwindcss -i ./src/css/style.css -o ./dist/style.css",
-    "dev:css": "npx tailwindcss -i ./src/css/style.css -o ./dist/style.css --watch",
+    "dev": "webpack --mode development && npx tailwindcss -i ./resources/css/style.css -o ./static/dist/style.css",
+    "dev:css": "npx tailwindcss -i ./resources/css/style.css -o ./static/dist/style.css --watch",
     "dev:js": "webpack --watch --mode development",
-    "build": "webpack && npx tailwindcss -i ./src/css/style.css -o ./dist/style.css --minify"
+    "build": "webpack --mode production && npx tailwindcss -i ./resources/css/style.css -o ./static/dist/style.css --minify"
   },
   "repository": {
     "type": "git",

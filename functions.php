@@ -34,7 +34,6 @@ $theme->setMenus([
 $theme->setThemeSupport([
     'title-tag',
     'post-thumbnails',
-    'html5',
     'custom-logo',
     // 'woocommerce',
 ]);
@@ -44,13 +43,13 @@ $theme->initialize();
 add_action('wp_enqueue_scripts', function () {
     $themeEnqueue = new ThemeEnqueue();
     $themeEnqueue->setScripts([
-        'jquery' => THEME_URL . '/src/inc/jquery-1.11.0.min.js',
-        'slick' => THEME_URL . '/src/inc/slick.min.js',
-        'script' => THEME_URL . '/dist/scripts.js',
+        'jquery' => THEME_URL . '/static/inc/jquery-1.11.0.min.js',
+        'slick' => THEME_URL . '/static/inc/slick.min.js',
+        'script' => THEME_URL . '/static/dist/scripts.js',
     ]);
     $themeEnqueue->setStyles([
-        'slick' => THEME_URL . '/src/inc/slick.min.css',
-        'style' => THEME_URL . '/dist/style.css',
+        'slick' => THEME_URL . '/static/inc/slick.min.css',
+        'style' => THEME_URL . '/static/dist/style.css',
     ]);
 
     $themeEnqueue->enqueue();
