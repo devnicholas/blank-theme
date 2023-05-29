@@ -5,7 +5,7 @@ use Src\AutoLoad;
 
 // Theme version
 if (!defined('_S_VERSION')) {
-    define('_S_VERSION', '2.0.0');
+    define('_S_VERSION', '1');
 }
 
 // Theme directory

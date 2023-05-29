@@ -1,5 +1,6 @@
 module.exports = {
   content: [
+    './front-page.php',
     './header.php',
     './footer.php',
     './index.php',
