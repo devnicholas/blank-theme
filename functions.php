@@ -1,11 +1,11 @@
 <?php
-require_once 'src/Autoload.php';
+require_once 'core/Autoload.php';
 
-use Src\AutoLoad;
+use Core\AutoLoad;
 
 // Theme version
 if (!defined('_S_VERSION')) {
-    define('_S_VERSION', '1');
+    define('_S_VERSION', '2.1.0');
 }
 
 // Theme directory
@@ -15,7 +15,7 @@ if (!defined('THEME_DIR') || !defined('THEME_URL')) {
 }
 
 // Load core theme files
-$autoload = new AutoLoad(THEME_DIR . '/src');
+$autoload = new AutoLoad(THEME_DIR . '/core');
 
 // Load plugins install
 $autoload->add(THEME_DIR . '/plugins/index.php');

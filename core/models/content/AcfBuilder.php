@@ -71,7 +71,7 @@ class AcfBuilder
      */
     function createField($slug, $label, $type = 'text', $options = [])
     {
-        $field = FieldsController::create($slug, $label, $type, array_merge([
+        $field = FieldsController::createField($slug, $label, $type, array_merge([
             'parent' => $this->key,
         ], $options));
 
@@ -90,7 +90,7 @@ class AcfBuilder
      */
     function createGroup($slug, $label, $isRepeater = false, $fields = [], $options = [])
     {
-        $field = FieldsController::group($slug, $label, $isRepeater, $fields, array_merge([
+        $field = FieldsController::createGroup($slug, $label, $isRepeater, $fields, array_merge([
             'parent' => $this->key,
         ], $options));
 

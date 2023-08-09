@@ -1,7 +1,27 @@
 <?php
 class ContentController
 {
-    public static function getContent($post_id = null)
+    private $data = [];
+
+    function __construct($post_id = null)
+    {
+        $this->data = $this->getContent($post_id);
+    }
+
+    public function get($field)
+    {
+        if (isset($this->data[$field])) {
+            return $this->data[$field];
+        } else {
+            return false;
+        }
+    }
+
+    public function getAll() {
+        return $this->data;
+    }
+
+    private function getContent($post_id = null)
     {
         $content = [];
         $fields = get_fields($post_id);
@@ -26,7 +46,7 @@ class ContentController
                 if (!is_array($field)) {
                     $content[$key] = $field;
                 } else {
-                    $content[$key] = self::clearArray($key, $field);
+                    $content[$key] = $this->clearArray($key, $field);
                 }
             }
         }
@@ -34,16 +54,16 @@ class ContentController
         return $content;
     }
 
-    private static function clearArray($string, $array)
+    private function clearArray($string, $array)
     {
         $newArray = [];
         foreach ($array as $key => $value) {
             $replacedKey = str_replace($string . '_', '', $key);
             if (is_array($value)) {
                 if (is_int($key)) {
-                    $newArray[$replacedKey] = self::clearArray($string, $value);
+                    $newArray[$replacedKey] = $this->clearArray($string, $value);
                 } else {
-                    $newArray[$replacedKey] = self::clearArray($key, $value);
+                    $newArray[$replacedKey] = $this->clearArray($key, $value);
                 }
             } else {
                 $newArray[$replacedKey] = $value;

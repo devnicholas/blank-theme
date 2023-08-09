@@ -9,7 +9,7 @@ class FieldsController
      * 
      * @return Array Field data formatted
      */
-    static function create($slug, $label, $type = 'text', $options = [])
+    static function createField($slug, $label, $type = 'text', $options = [])
     {
         if ($type == 'editor') {
             $type = 'wysiwyg';
@@ -39,7 +39,7 @@ class FieldsController
      * 
      * @return Array Field data formatted
      */
-    static function group($slug, $label, $isRepeater = false, $fields = [], $options = [])
+    static function createGroup($slug, $label, $isRepeater = false, $fields = [], $options = [])
     {
         $type = $isRepeater ? 'repeater' : 'group';
         $options['layout'] = 'block';
