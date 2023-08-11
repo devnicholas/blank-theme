@@ -1,6 +1,6 @@
 on:
   push:
-    branches: []
+    branches: ["none"]
 name: 🚀 FTP Deploy
 jobs:
   web-deploy:
