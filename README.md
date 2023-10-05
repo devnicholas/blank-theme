@@ -4,7 +4,7 @@
 Um tema base para a criação de temas personalizados no Wordpress
 
 ![Badge](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
-![Badge](https://img.shields.io/badge/Wordpress-6.1.1-brightgreen?style=for-the-badge&logo=wordpress)
+![Badge](https://img.shields.io/badge/Wordpress-6.3.1-brightgreen?style=for-the-badge&logo=wordpress)
 ![Badge](https://img.shields.io/badge/Docker-blue?logo=docker&style=for-the-badge)
 </div>
 <div id="tabela-de-conteudo">
@@ -20,6 +20,7 @@ Um tema base para a criação de temas personalizados no Wordpress
 	- [📑 Tipos customizados](#-tipos-customizados)
 	- [📄 Exibir páginas](#-exibir-páginas)
 	- [📂 Exibir tipos de conteúdos customizados](#-exibir-tipos-de-conteúdos-customizados)
+	- [Consumir campos customizados](#consumir-campos-customizados)
 - [💡 Recomendações](#-recomendações)
 - [🙋‍♂️ Autor](#️-autor)
 - [📝 Licença](#-licença)
@@ -106,9 +107,9 @@ $type->create();
 <div id="pages">
 
 ## 📄 Exibir páginas
-Após a criação da página pelo Wordpress, é possível criar o arquivo referente a ela. Para isso basta criar um novo arquivo dentro do diretório `templates/pages` com o nome `{slug}.php`, onde o slug irá corresponder ao slug da página criada. 
+Após a criação da página pelo Wordpress, é possível criar o arquivo referente a ela. Para isso basta criar um novo arquivo dentro do diretório `resourses/views/pages` com o nome `{slug}.php`, onde o slug irá corresponder ao slug da página criada. 
 
-Por exemplo para a página com o slug `sobre` o arquivo ficaria `templates/pages/sobre.php`. Para a página `fale-conosco` ficaria `templates/pages/fale-conosco.php`.
+Por exemplo para a página com o slug `sobre` o arquivo ficaria `resourses/views/pages/sobre.php`. Para a página `fale-conosco` ficaria `resourses/views/pages/fale-conosco.php`.
 
 Na ausência de um arquivo com o slug da página o Wordpress chamará outros arquivos conforme a [hierarquia de templates](https://developer.wordpress.org/themes/basics/template-hierarchy).
 </div>
@@ -120,6 +121,20 @@ Para exibir a página interna de um tipo de conteúdo customizado é necessário
 Por exemplo para o tipo de conteúdo com o slug `servicos` o arquivo ficaria `resourses/views/singles/servicos.php`.
 
 Na ausência de um arquivo com o slug do tipo de conteúdo o Wordpress chamará outros arquivos conforme a [hierarquia de templates](https://developer.wordpress.org/themes/basics/template-hierarchy).
+
+## Consumir campos customizados
+Para ter acesso aos campos customizados que forem criados por você, existe a classe `ContentController`, que pode ser instanciada passando o ID de um post específico ou ele pegará o do post atualmente ativo. 
+
+Uma vez instanciada você tem acesso aos seguintes métodos: 
+- `get`, onde você deve passar a key de um campo para receber o valor dele; 
+- `getAll`, onde você receberá um array com todos os campos relacionados aquele post.
+
+Um exemplo de implementação que utiliza a classe:
+```php
+$data = new ContentController();
+$foo = $data->get('foo');
+```
+Nesse exemplo `foo` é o slug de um campo previamente criado.
 </div>
 <div id="recomendations">
 
