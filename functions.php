@@ -26,6 +26,11 @@ $autoload->add(THEME_DIR . '/acf');
 // Call files
 $autoload->load();
 
+if (!defined('THEME_DATA')) {
+    $themeData = new ContentController('options');
+    define('THEME_DATA', $themeData->getAll());
+}
+
 $theme = new ThemeSetup();
 $theme->setMenus([
     'menu-primary' => 'Menu primário',
@@ -55,7 +60,7 @@ add_action('wp_enqueue_scripts', function () {
     $themeEnqueue->enqueue();
 });
 
-add_action('after_setup_theme', function() {
+add_action('after_setup_theme', function () {
     $defaultPages = new DefaultPages();
     $defaultPages->setPages(['Home']);
     $defaultPages->create();
