@@ -35,6 +35,9 @@ class ThemeSetup
         }
         add_filter('admin_footer_text', 'blank_theme_copyright');
 
+        /* Disable WordPress Admin Bar for all users */
+        add_filter('show_admin_bar', '__return_false');
+
         function my_login_logo()
         { ?>
             <style type="text/css">
