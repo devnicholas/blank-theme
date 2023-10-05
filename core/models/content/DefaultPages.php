@@ -19,7 +19,18 @@ class DefaultPages
     public function create()
     {
         foreach ($this->pages as $page) {
-            if (!get_page_by_title($page['post_title'])) wp_insert_post($page);
+            if (!$this->page_exists($page['post_title'])) wp_insert_post($page);
         }
+    }
+
+    private function page_exists($title)
+    {
+        $query = new \WP_Query([
+            'post_type' => 'page',
+            'fields' => 'ids',
+            'name' => sanitize_title($title),
+        ]);
+
+        return $query->have_posts();
     }
 }
