@@ -25,7 +25,8 @@ services:
       MYSQL_PASSWORD: secret
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
-      - db:/var/lib/mysql
+      - db_storage:/var/lib/mysql
 
 volumes:
-  db:
+  db_storage:
+    driver: local
