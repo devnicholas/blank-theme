@@ -17,14 +17,14 @@ class ContentController
         }
     }
 
-    public function getAll() {
+    public function getAll()
+    {
         return $this->data;
     }
 
     private function getContent($post_id = null)
     {
         $content = [];
-        $fields = get_fields($post_id);
         $post = get_post($post_id);
 
         if ($post) {
@@ -41,12 +41,15 @@ class ContentController
             ];
         }
 
-        if ($fields) {
-            foreach ($fields as $key => $field) {
-                if (!is_array($field)) {
-                    $content[$key] = $field;
-                } else {
-                    $content[$key] = $this->clearArray($key, $field);
+        if (function_exists('get_fields')) {
+            $fields = get_fields($post_id);
+            if ($fields) {
+                foreach ($fields as $key => $field) {
+                    if (!is_array($field)) {
+                        $content[$key] = $field;
+                    } else {
+                        $content[$key] = $this->clearArray($key, $field);
+                    }
                 }
             }
         }
