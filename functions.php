@@ -5,7 +5,7 @@ use Core\AutoLoad;
 
 // Theme version
 if (!defined('_S_VERSION')) {
-    define('_S_VERSION', '2.1.2');
+    define('_S_VERSION', '2.1.3');
 }
 
 // Theme directory

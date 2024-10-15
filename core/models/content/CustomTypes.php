@@ -29,7 +29,7 @@ class CustomTypes
                 'query_var' => true,
                 'taxonomies' => [$this->slug . '_categories'],
                 'rewrite' => [
-                    'slug' => $this->slug . '/%' . $this->slug . '_categories%',
+                    'slug' => $this->slug,
                     'with_front' => false
                 ]
             ];
@@ -46,6 +46,7 @@ class CustomTypes
             $this->slug,
             [
                 'hierarchical' => true,
+                'show_in_rest' => true,
                 'label' => 'Categorias',
                 'query_var' => true,
                 'rewrite' => [
