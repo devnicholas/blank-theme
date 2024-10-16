@@ -26,3 +26,56 @@
 .start-line code {
   @apply bg-gray-200 p-1;
 }
+
+/* Menus */
+#menu-primary,
+#menu-primary > ul {
+  @apply hidden md:flex justify-end items-center;
+}
+#menu-primary > li,
+#menu-primary > ul > li {
+  @apply text-lg ml-4 transition-all;
+}
+#menu-primary li a,
+#menu-primary > ul li a {
+  @apply px-4 py-1;
+}
+#menu-primary li a:hover,
+#menu-primary > ul li a:hover {
+  @apply underline;
+}
+#menu-primary li.menu-item-has-children > a::after,
+#menu-primary > ul li.menu-item-has-children > a::after {
+  content: "▾";
+  @apply ml-1;
+}
+#menu-primary li > .sub-menu,
+#menu-primary > ul li > .sub-menu {
+  @apply hidden absolute bg-white border border-neutral-200 rounded-b-lg py-1 space-y-2;
+}
+#menu-primary li:hover > .sub-menu,
+#menu-primary > ul li:hover > .sub-menu {
+  @apply block;
+}
+.hamburger-menu-wrapper {
+  @apply flex h-screen w-screen fixed top-0 left-0 bg-black bg-opacity-40 overflow-hidden z-30;
+}
+.hamburger-menu-container {
+  @apply bg-white w-4/6 h-full px-6 py-8 relative z-40 overflow-y-auto;
+}
+#hamburger-menu > li .sub-menu {
+  @apply hidden pl-2 py-1;
+}
+#hamburger-menu > li > a {
+  display: flex !important;
+  @apply py-2 border-b border-gray-300;
+}
+#hamburger-menu > li:last-child > a {
+  @apply border-none;
+}
+#hamburger-menu li.menu-item-has-children > a {
+  @apply relative block;
+}
+#menu-footer {
+  @apply flex justify-between items-center;
+}
