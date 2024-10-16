@@ -28,7 +28,11 @@ $autoload->load();
 
 if (!defined('THEME_DATA')) {
     $themeData = new ContentController('options');
-    define('THEME_DATA', $themeData->getAll());
+    $themeContent = $themeData->getAll();
+    if (!count($themeContent)) {
+        $themeContent = ThemeMocks::getThemeData();
+    }
+    define('THEME_DATA', $themeContent);
 }
 
 $theme = new ThemeSetup();
