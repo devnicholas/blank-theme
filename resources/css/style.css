@@ -2,27 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.welcome-wrapper {
-  @apply container h-screen flex flex-col py-28 justify-between items-center;
-}
-.logo {
-  @apply border-2 border-black p-4;
-}
-.logo > div {
-  @apply bg-black w-20 h-20;
-}
-.theme-title {
-  @apply font-bold text-6xl;
-}
-.theme-subtitle {
-  @apply text-gray-600 text-3xl;
-}
-.actions {
-  @apply text-gray-600 font-light;
-}
-.actions a {
-  @apply underline;
-}
-.start-line code {
-  @apply bg-gray-200 p-1;
-}
