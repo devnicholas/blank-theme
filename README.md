@@ -4,7 +4,7 @@
 Um tema base para a criação de temas personalizados no Wordpress
 
 ![Badge](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
-![Badge](https://img.shields.io/badge/Wordpress-6.3.1-brightgreen?style=for-the-badge&logo=wordpress)
+![Badge](https://img.shields.io/badge/Wordpress-6.8.3-brightgreen?style=for-the-badge&logo=wordpress)
 ![Badge](https://img.shields.io/badge/Docker-blue?logo=docker&style=for-the-badge)
 </div>
 <div id="tabela-de-conteudo">
