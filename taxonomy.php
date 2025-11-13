@@ -1,14 +1,6 @@
 <?php get_header(); ?>
-
-<?php
-$taxonomy = get_queried_object();
-
-if (isset($taxonomy->taxonomy)) {
-    get_template_part('resources/views/categories/category', $taxonomy->taxonomy);
-} else {
-    // get_template_part('resources/views/categories/category', 'default');
-    echo "<h1>" . $taxonomy->name . "</h1>";
-}
+<?php 
+// The active taxonomy can be retrieved with get_queried_object()
+get_template_part('resources/views/lists/list', get_post_type()); 
 ?>
-
 <?php get_footer(); ?>

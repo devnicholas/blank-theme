@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="container mx-auto">
+<div class="container mx-auto h-96 flex flex-col justify-center items-center">
     <div class="py-12 px-4">
         <h1 class="text-center text-8xl font-bold">404</h1>
         <h2 class="text-center text-3xl font-bold">Página não encontrada</h2>

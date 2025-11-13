@@ -8,3 +8,100 @@
 @utility container {
   @apply mx-auto w-full sm:max-w-[640px] md:max-w-[768px] lg:max-w-[80%];
 }
+
+/* Menus */
+#menu-primary,
+#menu-primary > ul {
+  /* hidden on small screens, horizontal on md+ */
+  @apply md:flex hidden justify-between items-center w-full space-x-4;
+}
+
+#menu-primary > li,
+#menu-primary > ul > li {
+  @apply relative text-lg transition-all;
+}
+
+#menu-primary li a,
+#menu-primary > ul li a {
+  @apply px-4 py-2 inline-block text-sm md:text-base;
+}
+
+/* top-level hover / current */
+#menu-primary li a:hover,
+#menu-primary > ul li a:hover,
+#menu-primary li.current_page_item > a {
+  @apply underline;
+}
+
+/* indicator for items with children */
+#menu-primary li.menu-item-has-children > a::after,
+#menu-primary > ul li.menu-item-has-children > a::after {
+  content: "▾";
+  @apply ml-2 text-xs inline-block;
+}
+
+/* First-level dropdown (appears directly below parent, slightly overlapping to avoid hover gap) */
+#menu-primary li > .sub-menu,
+#menu-primary > ul li > .sub-menu {
+  /* use top-full and a small translate to slightly overlap the parent and avoid a mouse-gap */
+  @apply hidden absolute left-0 top-[90%] translate-y-1 min-w-[12rem] bg-white text-black border border-neutral-200 rounded-md py-2 space-y-0 shadow-lg z-50;
+}
+
+/* Make dropdown visible on hover or focus-within for keyboard accessibility */
+#menu-primary li:hover > .sub-menu,
+#menu-primary > ul li:hover > .sub-menu,
+#menu-primary li:focus-within > .sub-menu,
+#menu-primary > ul li:focus-within > .sub-menu {
+  @apply block;
+}
+
+/* Second-level (submenu inside dropdown) */
+#menu-primary .sub-menu li {
+  @apply relative;
+}
+
+#menu-primary .sub-menu li a {
+  @apply px-4 py-2 w-full text-sm whitespace-nowrap;
+}
+
+/* Third-level flyout (appears to the right of second-level item) */
+#menu-primary .sub-menu li .sub-menu {
+  /* hidden by default; positioned flush to the right of parent item (no extra gap) */
+  @apply hidden absolute top-0 left-full ml-0 min-w-[12rem] bg-white text-black border border-neutral-200 rounded-md py-2 shadow-lg;
+}
+
+#menu-primary .sub-menu li:hover > .sub-menu,
+#menu-primary .sub-menu li:focus-within > .sub-menu {
+  @apply block;
+}
+
+/* small visual tweaks for nested items */
+#menu-primary .sub-menu li a:hover {
+  @apply bg-gray-50;
+}
+
+/* ensure deeper levels show above other content */
+#menu-primary .sub-menu,
+#menu-primary .sub-menu .sub-menu {
+  z-index: 60;
+}
+
+.hamburger-menu-wrapper {
+  @apply flex h-screen w-screen fixed top-0 left-0 bg-black/40 overflow-hidden z-30;
+}
+.hamburger-menu-container {
+  @apply bg-white w-4/6 h-full px-6 py-8 relative z-40 overflow-y-auto;
+}
+#hamburger-menu > li .sub-menu {
+  @apply hidden pl-2 py-1;
+}
+#hamburger-menu > li > a {
+  display: flex !important;
+  @apply py-2 border-b border-gray-300;
+}
+#hamburger-menu > li:last-child > a {
+  @apply border-none;
+}
+#hamburger-menu li.menu-item-has-children > a {
+  @apply relative block;
+}
